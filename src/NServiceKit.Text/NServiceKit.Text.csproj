@@ -1,335 +1,209 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\nuget-packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.6\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props" Condition="Exists('..\..\nuget-packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.6\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props')" />
-  <Import Project="..\..\nuget-packages\Microsoft.NetFramework.Analyzers.2.9.6\build\Microsoft.NetFramework.Analyzers.props" Condition="Exists('..\..\nuget-packages\Microsoft.NetFramework.Analyzers.2.9.6\build\Microsoft.NetFramework.Analyzers.props')" />
-  <Import Project="..\..\nuget-packages\Microsoft.NetCore.Analyzers.2.9.6\build\Microsoft.NetCore.Analyzers.props" Condition="Exists('..\..\nuget-packages\Microsoft.NetCore.Analyzers.2.9.6\build\Microsoft.NetCore.Analyzers.props')" />
-  <Import Project="..\..\nuget-packages\Microsoft.CodeQuality.Analyzers.2.9.6\build\Microsoft.CodeQuality.Analyzers.props" Condition="Exists('..\..\nuget-packages\Microsoft.CodeQuality.Analyzers.2.9.6\build\Microsoft.CodeQuality.Analyzers.props')" />
-  <Import Project="..\..\nuget-packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.6\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props" Condition="Exists('..\..\nuget-packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.6\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{579B3FDB-CDAD-44E1-8417-885C38E49A0E}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NServiceKit.Text</RootNamespace>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>NServiceKit.Text</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation />
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <RootNamespace>NServiceKit.Text</RootNamespace>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;CORE</DefineConstants>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>bin\Release\NServiceKit.Text.XML</DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'MonoTouch|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\MonoTouch</OutputPath>
-    <DefineConstants>MONOTOUCH;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data.Linq" />
-    <Reference Include="System.Runtime.Serialization">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Xml" />
+    <PackageReference Include="Microsoft.DependencyValidation.Analyzers" Version="0.11.0" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="AssemblyUtils.cs">
+    <Compile Update="AssemblyUtils.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CollectionExtensions.cs" />
-    <Compile Include="Common\DeserializeKeyValuePair.cs" />
-    <Compile Include="Common\DeserializeDynamic.cs" />
-    <Compile Include="Common\DateTimeSerializer.cs">
+    <Compile Update="Common\DateTimeSerializer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\DeserializeArray.cs">
+    <Compile Update="Common\DeserializeArray.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\DeserializeBuiltin.cs">
+    <Compile Update="Common\DeserializeBuiltin.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\DeserializeCollection.cs">
+    <Compile Update="Common\DeserializeCollection.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\DeserializeDictionary.cs">
+    <Compile Update="Common\DeserializeDictionary.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\DeserializeListWithElements.cs">
+    <Compile Update="Common\DeserializeListWithElements.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\DeserializeSpecializedCollections.cs">
+    <Compile Update="Common\DeserializeSpecializedCollections.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\DeserializeType.cs">
+    <Compile Update="Common\DeserializeType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\DeserializeTypeRef.cs">
+    <Compile Update="Common\DeserializeTypeRef.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\DeserializeTypeRefJson.cs">
+    <Compile Update="Common\DeserializeTypeRefJson.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\DeserializeTypeRefJsv.cs">
+    <Compile Update="Common\DeserializeTypeRefJsv.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\DeserializeTypeUtils.cs">
+    <Compile Update="Common\DeserializeTypeUtils.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\ITypeSerializer.cs">
+    <Compile Update="Common\ITypeSerializer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\JsDelegates.cs" />
-    <Compile Include="Common\JsReader.cs">
+    <Compile Update="Common\JsReader.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\JsState.cs">
+    <Compile Update="Common\JsState.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\JsWriter.cs">
+    <Compile Update="Common\JsWriter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\ParseUtils.cs">
+    <Compile Update="Common\ParseUtils.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\StaticParseMethod.cs">
+    <Compile Update="Common\StaticParseMethod.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\WriteDictionary.cs">
+    <Compile Update="Common\WriteDictionary.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\WriteLists.cs">
+    <Compile Update="Common\WriteLists.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\WriteType.cs">
+    <Compile Update="Common\WriteType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controller\CommandProcessor.cs">
+    <Compile Update="Controller\CommandProcessor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controller\PathInfo.cs">
+    <Compile Update="Controller\PathInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CsvConfig.cs">
+    <Compile Update="CsvConfig.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CsvSerializer.cs">
+    <Compile Update="CsvSerializer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CsvStreamExtensions.cs">
+    <Compile Update="CsvStreamExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CsvWriter.cs">
+    <Compile Update="CsvWriter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DateTimeExtensions.cs">
+    <Compile Update="DateTimeExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CsvAttribute.cs" />
-    <Compile Include="DynamicJson.cs" />
-    <Compile Include="DynamicProxy.cs" />
-    <Compile Include="Env.cs">
+    <Compile Update="Env.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HashSet.cs" />
-    <Compile Include="ITracer.cs">
+    <Compile Update="ITracer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ITypeSerializer.Generic.cs">
+    <Compile Update="ITypeSerializer.Generic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="JsConfig.cs">
+    <Compile Update="JsConfig.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="JsConfigScope.cs" />
-    <Compile Include="JsonObject.cs">
+    <Compile Update="JsonObject.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="JsonSerializer.cs">
+    <Compile Update="JsonSerializer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="JsonSerializer.Generic.cs">
+    <Compile Update="JsonSerializer.Generic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Json\JsonReader.Generic.cs">
+    <Compile Update="Json\JsonReader.Generic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Json\JsonTypeSerializer.cs">
+    <Compile Update="Json\JsonTypeSerializer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Json\JsonUtils.cs">
+    <Compile Update="Json\JsonUtils.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Json\JsonWriter.Generic.cs">
+    <Compile Update="Json\JsonWriter.Generic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="JsvFormatter.cs">
+    <Compile Update="JsvFormatter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Jsv\JsvDeserializeType.cs">
+    <Compile Update="Jsv\JsvDeserializeType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Jsv\JsvReader.Generic.cs">
+    <Compile Update="Jsv\JsvReader.Generic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Jsv\JsvSerializer.Generic.cs">
+    <Compile Update="Jsv\JsvSerializer.Generic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Jsv\JsvTypeSerializer.cs">
+    <Compile Update="Jsv\JsvTypeSerializer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Jsv\JsvWriter.Generic.cs">
+    <Compile Update="Jsv\JsvWriter.Generic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ListExtensions.cs">
+    <Compile Update="ListExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MapExtensions.cs">
+    <Compile Update="MapExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Marc\Link.cs" />
-    <Compile Include="Marc\ObjectAccessor.cs" />
-    <Compile Include="Marc\TypeAccessor.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueryStringSerializer.cs">
+    <Compile Update="QueryStringSerializer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ReflectionExtensions.cs">
+    <Compile Update="ReflectionExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Reflection\StaticAccessors.cs">
+    <Compile Update="Reflection\StaticAccessors.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="StreamExtensions.cs">
+    <Compile Update="StreamExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="StringExtensions.cs">
+    <Compile Update="StringExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Support\AssemblyTypeDefinition.cs">
+    <Compile Update="Support\AssemblyTypeDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Support\DoubleConverter.cs">
+    <Compile Update="Support\DoubleConverter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Support\TypePair.cs">
+    <Compile Update="Support\TypePair.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SystemTime.cs" />
-    <Compile Include="TextExtensions.cs">
+    <Compile Update="TextExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Tracer.cs">
+    <Compile Update="Tracer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TranslateListWithElements.cs">
+    <Compile Update="TranslateListWithElements.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TypeConfig.cs">
+    <Compile Update="TypeConfig.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TypeSerializer.cs">
+    <Compile Update="TypeSerializer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TypeSerializer.Generic.cs">
+    <Compile Update="TypeSerializer.Generic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="WebRequestExtensions.cs" />
-    <Compile Include="XmlSerializer.cs">
+    <Compile Update="XmlSerializer.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\..\nuget-packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.6\analyzers\dotnet\cs\Microsoft.CodeAnalysis.VersionCheckAnalyzer.resources.dll" />
-    <Analyzer Include="..\..\nuget-packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.6\analyzers\dotnet\Microsoft.CodeAnalysis.VersionCheckAnalyzer.dll" />
-    <Analyzer Include="..\..\nuget-packages\Microsoft.CodeQuality.Analyzers.2.9.6\analyzers\dotnet\cs\Humanizer.dll" />
-    <Analyzer Include="..\..\nuget-packages\Microsoft.CodeQuality.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.CodeQuality.Analyzers.dll" />
-    <Analyzer Include="..\..\nuget-packages\Microsoft.CodeQuality.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.CodeQuality.CSharp.Analyzers.dll" />
-    <Analyzer Include="..\..\nuget-packages\Microsoft.NetCore.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.NetCore.Analyzers.dll" />
-    <Analyzer Include="..\..\nuget-packages\Microsoft.NetCore.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.NetCore.CSharp.Analyzers.dll" />
-    <Analyzer Include="..\..\nuget-packages\Microsoft.NetFramework.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
-    <Analyzer Include="..\..\nuget-packages\Microsoft.NetFramework.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\nuget-packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.6\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\nuget-packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.6\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props'))" />
-    <Error Condition="!Exists('..\..\nuget-packages\Microsoft.CodeQuality.Analyzers.2.9.6\build\Microsoft.CodeQuality.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\nuget-packages\Microsoft.CodeQuality.Analyzers.2.9.6\build\Microsoft.CodeQuality.Analyzers.props'))" />
-    <Error Condition="!Exists('..\..\nuget-packages\Microsoft.NetCore.Analyzers.2.9.6\build\Microsoft.NetCore.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\nuget-packages\Microsoft.NetCore.Analyzers.2.9.6\build\Microsoft.NetCore.Analyzers.props'))" />
-    <Error Condition="!Exists('..\..\nuget-packages\Microsoft.NetFramework.Analyzers.2.9.6\build\Microsoft.NetFramework.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\nuget-packages\Microsoft.NetFramework.Analyzers.2.9.6\build\Microsoft.NetFramework.Analyzers.props'))" />
-    <Error Condition="!Exists('..\..\nuget-packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.6\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\nuget-packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.6\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props'))" />
-  </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>

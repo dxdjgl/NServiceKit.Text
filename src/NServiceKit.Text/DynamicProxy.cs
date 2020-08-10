@@ -45,7 +45,7 @@ namespace NServiceKit.Text {
         /// <summary>Initializes static members of the NServiceKit.Text.DynamicProxy class.</summary>
 		static DynamicProxy () {
 			var assemblyName = new AssemblyName("DynImpl");
-			DynamicAssembly = AppDomain.CurrentDomain.DefineDynamicAssembly(assemblyName, AssemblyBuilderAccess.RunAndSave);
+            DynamicAssembly = AssemblyBuilder.DefineDynamicAssembly(assemblyName, AssemblyBuilderAccess.Run);
 			ModuleBuilder = DynamicAssembly.DefineDynamicModule("DynImplModule");
 		}
 

@@ -293,7 +293,7 @@ namespace NServiceKit.Text.FastMember
             if(assembly == null)
             {
                 AssemblyName name = new AssemblyName("FastMember_dynamic");
-                assembly = AppDomain.CurrentDomain.DefineDynamicAssembly(name, AssemblyBuilderAccess.Run);
+                assembly = AssemblyBuilder.DefineDynamicAssembly(name, AssemblyBuilderAccess.Run);
                 module = assembly.DefineDynamicModule(name.Name);
             }
             TypeBuilder tb = module.DefineType("FastMember_dynamic." + type.Name + "_" + Interlocked.Increment(ref counter),
