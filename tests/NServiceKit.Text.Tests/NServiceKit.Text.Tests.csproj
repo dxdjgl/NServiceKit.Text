@@ -133,20 +133,13 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="nunit.framework">
       <HintPath>..\..\lib\tests\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="Platform">
-      <HintPath>..\..\lib\tests\Platform.dll</HintPath>
-    </Reference>
     <Reference Include="protobuf-net">
       <HintPath>..\..\lib\tests\protobuf-net.dll</HintPath>
-    </Reference>
-    <Reference Include="protobuf-net.Extensions">
-      <HintPath>..\..\lib\tests\protobuf-net.Extensions.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
