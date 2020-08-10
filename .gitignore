@@ -50,3 +50,5 @@ _NCrunch*/
 *.xml
 .sonar/
 nuget-packages/
+coverage.lutdata
+/src/.vs
